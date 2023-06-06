@@ -1,15 +1,16 @@
 import { Grid, GridItem, Show } from '@chakra-ui/react'
+import NavBar from './components/NavBar'
 
 const App = () => {
   return (
     // "" is a row
-    // "a b c " a b c are coulmns
+    // "a b c " a b c are columns
     <Grid templateAreas={{
       base: `"nav" "main"`,           // for mobile
       lg: `"nav nav" "aside main"`    // for 1280px viwpoint and higher
     }} gap={1}>
-      <GridItem area='nav' bg='yellow'>
-        nav
+      <GridItem area='nav'>
+        <NavBar />
       </GridItem>
       {/* s The Show component controls the visibility of its children based on the screen size */}
       <Show above='lg'>
