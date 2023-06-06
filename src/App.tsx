@@ -1,10 +1,11 @@
 import { Grid, GridItem, Show } from '@chakra-ui/react'
 import NavBar from './components/NavBar'
 
+
 const App = () => {
   return (
     // "" is a row
-    // "a b c " a b c are columns
+    // "a b c " a b c are columns 
     <Grid templateAreas={{
       base: `"nav" "main"`,           // for mobile
       lg: `"nav nav" "aside main"`    // for 1280px viwpoint and higher
@@ -22,6 +23,7 @@ const App = () => {
         main
       </GridItem>
     </Grid>
+
   )
 }
 
