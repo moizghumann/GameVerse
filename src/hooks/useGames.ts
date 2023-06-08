@@ -2,20 +2,28 @@ import { CanceledError } from 'axios';
 import { useEffect, useState } from 'react'
 import apiClient from '../services/api-client';
 
-export interface Games {
+export interface Platform {
+    id: number;
+    name: string;
+    slug: string;
+}
+
+export interface Game {
     id: number;
     name: string;
     background_image: string;
+    // array of (object with (property which is object))
+    parent_platforms: { platform: Platform }[]
 }
 
 interface FetchGames {
     count: number;
-    results: Games[];
+    results: Game[];
 }
 
 const useGames = () => {
     // state hook to store games 
-    const [games, setGames] = useState<Games[]>([]);
+    const [games, setGames] = useState<Game[]>([]);
     const [error, setError] = useState('');
 
     // effect hook to fetch games from api when GameGrid comp renders/loads
@@ -26,7 +34,7 @@ const useGames = () => {
         apiClient
             // .get method to fetch games data from rawg api via apiClient
             .get<FetchGames>('/games', { signal: controller.signal })
-            .then(res => { setGames(res.data.results) })
+            .then(res => { console.log(res.data.count); setGames(res.data.results) })
             .catch(err => {
                 if (err instanceof CanceledError) return;
                 setError(err.message);
