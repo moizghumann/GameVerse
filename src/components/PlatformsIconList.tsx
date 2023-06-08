@@ -43,7 +43,7 @@ const PlatformsIconList = ({ platforms }: Prop) => {
   }
 
   return (
-    <HStack marginY={1.5}>
+    <HStack marginY={2.5}>
       {/* typescript uses index signature if you try to access object property dynamically */}
 
       {/* Dynamically accessing an object property in TypeScript means accessing a property of an object using a variable containing the property name, rather than directly using the property name in the code. */}

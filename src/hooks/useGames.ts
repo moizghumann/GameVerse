@@ -13,7 +13,8 @@ export interface Game {
     name: string;
     background_image: string;
     // array of (object with (property which is object))
-    parent_platforms: { platform: Platform }[]
+    parent_platforms: { platform: Platform }[];
+    metacritic: number;
 }
 
 interface FetchGames {
