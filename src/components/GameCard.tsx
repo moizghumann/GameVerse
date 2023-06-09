@@ -13,10 +13,10 @@ interface Prop {
 const GameCard = ({ game }: Prop) => {
     return (
         // overflow -> css property -> used to control how content that exceeds the size of its container is displayed
-        <Card borderRadius={10} overflow='hidden'>
+        <Card width={'300px'} borderRadius={10} overflow='hidden'>
             <Image src={getCroppedImageUrl(game.background_image)} />
             <CardBody>
-                <Heading fontSize={"2xl"} >{game.name}</Heading>
+                <Heading fontSize={"3xl"} >{game.name}</Heading>
                 <HStack marginY={1.5} justifyContent={'space-between'} >
                     {/* always name properties in props acc to data properties in api */}
                     <PlatformsIconList platforms={game.parent_platforms.map(p => p.platform)} />
