@@ -30,7 +30,7 @@ const App = () => {
       <Show above='lg'>
         <GridItem area='aside' bg='#242C39' borderRadius={10} padding={4} marginY='20px'>
           {/* getting data as prop from GenreSideBar to pass it as a prop to GameGrid to show only the selected GameCards by configuring the api request */}
-          <GenreSideBar onSelectedGenre={(genre) => setSelectedGenre(genre)} />
+          <GenreSideBar selectedGenre={selectedGenre} onSelectedGenre={(genre) => setSelectedGenre(genre)} />
         </GridItem>
       </Show>
       <GridItem area='main'>
