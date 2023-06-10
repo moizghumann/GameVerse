@@ -1,5 +1,5 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
-import useGames from "../hooks/useGames";
+import useGames, { Platform } from "../hooks/useGames";
 import { Genres } from "../hooks/useGenre";
 
 import GameCard from "./GameCard";
@@ -8,11 +8,12 @@ import GameCardSkeleton from "./GameCardSkeleton";
 
 interface Prop {
     selectedGenre: Genres | null;
+    selectedPlatform: Platform | null;
 }
 
-const GameGrid = ({ selectedGenre }: Prop) => {
+const GameGrid = ({ selectedGenre, selectedPlatform }: Prop) => {
     // curly braces because it got imported like that. its a custom hook. check useGames.ts file
-    const { data, error, loading } = useGames(selectedGenre);
+    const { data, error, loading } = useGames(selectedGenre, selectedPlatform);
 
     // dummy values for the number of skeletons we want to show during loading
     const skeletons = [1, 2, 3, 4, 5, 6]

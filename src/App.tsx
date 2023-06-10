@@ -4,13 +4,15 @@ import GameGrid from './components/GameGrid'
 import GenreSideBar from './components/GenreSideBar'
 import NavBar from './components/NavBar'
 import PlatformFilter from './components/PlatformFilter'
+import { Platform } from './hooks/useGames'
 import { Genres } from './hooks/useGenre'
 
 
 const App = () => {
 
   // state hook in parent comp to update the genre state, this state will be passed to genreSideBar comp and gameGrid comp children so when genreSidebar is clicked, state changes
-  const [selectedGenre, setSelectedGenre] = useState<Genres | null>(null)
+  const [selectedGenre, setSelectedGenre] = useState<Genres | null>(null);
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
 
   return (
     // "" is a row
@@ -35,8 +37,8 @@ const App = () => {
         </GridItem>
       </Show>
       <GridItem area='main'>
-        <PlatformFilter />
-        <GameGrid selectedGenre={selectedGenre} />
+        <PlatformFilter selectedPlatform={selectedPlatform} onSelectedPlatform={(platform) => setSelectedPlatform(platform)} />
+        <GameGrid selectedGenre={selectedGenre} selectedPlatform={selectedPlatform} />
       </GridItem>
     </Grid>
 
