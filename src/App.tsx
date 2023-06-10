@@ -3,6 +3,7 @@ import { useState } from 'react'
 import GameGrid from './components/GameGrid'
 import GenreSideBar from './components/GenreSideBar'
 import NavBar from './components/NavBar'
+import PlatformFilter from './components/PlatformFilter'
 import { Genres } from './hooks/useGenre'
 
 
@@ -28,12 +29,13 @@ const App = () => {
       </GridItem>
       {/* s The Show component controls the visibility of its children based on the screen size */}
       <Show above='lg'>
-        <GridItem area='aside' bg='#242C39' borderRadius={10} padding={4} marginY='20px'>
+        <GridItem area='aside' bg='#242C39' borderRadius={10} padding={4} >
           {/* getting data as prop from GenreSideBar to pass it as a prop to GameGrid to show only the selected GameCards by configuring the api request */}
           <GenreSideBar selectedGenre={selectedGenre} onSelectedGenre={(genre) => setSelectedGenre(genre)} />
         </GridItem>
       </Show>
       <GridItem area='main'>
+        <PlatformFilter />
         <GameGrid selectedGenre={selectedGenre} />
       </GridItem>
     </Grid>
