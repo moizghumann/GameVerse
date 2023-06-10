@@ -7,7 +7,7 @@ import GameCardSkeleton from "./GameCardSkeleton";
 
 const GameGrid = () => {
     // curly braces because it got imported like that. its a custom hook. check useGames.ts file
-    const { games, error, loading } = useGames();
+    const { data, error, loading } = useGames();
     // dummy values for the number of skeletons we want to show during loading
     const skeletons = [1, 2, 3, 4, 5, 6]
     return (
@@ -21,13 +21,13 @@ const GameGrid = () => {
                     </GameCardContainer>)}
 
 
-                {games.map(game =>
+                {data?.map(game =>
                     <GameCardContainer>
-                        <GameCard key={game.id} game={game} />
+                        <GameCard key={game.id} games={game} />
                     </GameCardContainer>)}
 
             </SimpleGrid>
-            {console.log(games)}
+            {console.log(data)}
         </>
     )
 }

@@ -6,7 +6,7 @@ interface Prop {
 
 const MetaCritic = ({ critic }: Prop) => {
 
-    let color: string = critic > 90 ? 'green' : critic > 75 ? 'yellow' : critic > 60 ? 'blue' : 'red'
+    let color: string = critic > 89 ? 'green' : critic > 74 ? 'yellow' : critic > 59 ? 'blue' : 'red'
 
     return (
         <Badge fontSize='1.1em'
