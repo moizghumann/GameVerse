@@ -6,7 +6,7 @@ import ToggleColorMode from "./ToggleColorMode"
 const NavBar = () => {
     return (
         // hstack is a flex div in chakra with flex-direction: column
-        <HStack justifyContent='space-between' padding='10 px'>
+        <HStack justifyContent='space-between' padding='15px'>
             <Image src={logo} boxSize='60px' />
             <ToggleColorMode />
         </HStack>

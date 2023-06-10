@@ -1,10 +1,16 @@
 import { Grid, GridItem, Show } from '@chakra-ui/react'
+import { useState } from 'react'
 import GameGrid from './components/GameGrid'
 import GenreSideBar from './components/GenreSideBar'
 import NavBar from './components/NavBar'
+import { Genres } from './hooks/useGenre'
 
 
 const App = () => {
+
+  // state hook in parent comp to update the genre state, this state will be passed to genreSideBar comp and gameGrid comp children so when genreSidebar is clicked, state changes
+  const [selectedGenre, setSelectedGenre] = useState<Genres | null>(null)
+
   return (
     // "" is a row
     // "a b c " a b c are columns 
@@ -23,11 +29,12 @@ const App = () => {
       {/* s The Show component controls the visibility of its children based on the screen size */}
       <Show above='lg'>
         <GridItem area='aside' bg='#242C39' borderRadius={10} padding={4} marginY='20px'>
-          <GenreSideBar />
+          {/* getting data as prop from GenreSideBar to pass it as a prop to GameGrid to show only the selected GameCards by configuring the api request */}
+          <GenreSideBar onSelectedGenre={(genre) => setSelectedGenre(genre)} />
         </GridItem>
       </Show>
       <GridItem area='main'>
-        <GameGrid />
+        <GameGrid selectedGenre={selectedGenre} />
       </GridItem>
     </Grid>
 
