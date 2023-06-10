@@ -1,6 +1,6 @@
 import { Card, CardBody, Heading, HStack, Image, DarkMode } from "@chakra-ui/react";
 import { Game } from "../hooks/useGames"
-import getCroppedImageUrl from "../services/image-url";
+import getCroppedGameImageUrl from "../services/image-url";
 import MetaCritic from "./MetaCritic";
 import PlatformsIconList from "./PlatformsIconList";
 
@@ -15,7 +15,7 @@ const GameCard = ({ games }: Prop) => {
         // overflow -> css property -> used to control how content that exceeds the size of its container is displayed
         <DarkMode>
             <Card>
-                <Image src={getCroppedImageUrl(games.background_image)} />
+                <Image src={getCroppedGameImageUrl(games.background_image)} />
                 <CardBody>
                     <Heading fontSize={"3xl"} >{games.name}</Heading>
                     <HStack marginY={1.5} justifyContent={'space-between'} >
