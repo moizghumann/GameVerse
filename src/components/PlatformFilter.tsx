@@ -1,4 +1,4 @@
-import { Box, Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
+import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
 import { useState } from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
 import { Platform } from '../hooks/useGames';

@@ -14,6 +14,7 @@ export interface Game {
     // [array of {object with property: which is {object}}]
     parent_platforms: { platform: Platform }[];
     metacritic: number;
+    ordering: string;
 }
 
 const useGames = (gameQuery: GameQuery) => useData<Game>('/games',
@@ -28,7 +29,8 @@ const useGames = (gameQuery: GameQuery) => useData<Game>('/games',
     {
         params: {
             genres: gameQuery.genre?.id,
-            platforms: gameQuery.platform?.id
+            platforms: gameQuery.platform?.id,
+            ordering: gameQuery.sortOrder
         }
 
     }, [gameQuery]

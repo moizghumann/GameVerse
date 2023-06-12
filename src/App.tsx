@@ -12,6 +12,7 @@ import { Genres } from './hooks/useGenre'
 export interface GameQuery {
   genre: Genres | null;
   platform: Platform | null;
+  sortOrder: string;
 }
 
 const App = () => {
@@ -48,9 +49,8 @@ const App = () => {
         */}
         <HStack paddingLeft={'20px'} spacing={4} marginBottom={2}>
           <PlatformFilter selectedPlatform={gameQuery.platform} onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
-          <SortSelector />
+          <SortSelector sortOrder={gameQuery.sortOrder} setSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })} />
         </HStack>
-
 
         {/* 
         1. destruction here allows to pass individual properties of the gameQuery object as separate props to the GameGrid component.
