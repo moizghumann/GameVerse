@@ -1,4 +1,4 @@
-import { Button, HStack, Image, List, ListItem } from '@chakra-ui/react';
+import { Button, Heading, HStack, Image, List, ListItem } from '@chakra-ui/react';
 import useGenre, { Genres } from '../hooks/useGenre'
 import getCroppedGameImageUrl from '../services/image-url';
 import GenreSideBarSkeleton from './GenreSideBarSkeleton';
@@ -16,6 +16,15 @@ const GenreSideBar = ({ onSelectedGenre, selectedGenre }: Prop) => {
 
     return (
         <>
+            <Heading
+                marginBottom={4}
+                fontSize={'2xl'}
+                paddingTop={3.5}
+                paddingLeft={'3px'}
+            >
+                Genres
+            </Heading>
+
             <List>
                 {loading && skeletons.map(skeleton => <ListItem paddingY={2} key={skeleton}>
                     <GenreSideBarSkeleton />
