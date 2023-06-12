@@ -24,7 +24,11 @@ const GenreSideBar = ({ onSelectedGenre, selectedGenre }: Prop) => {
                     <HStack>
                         <Image boxSize={'35px'} borderRadius={10} src={getCroppedGameImageUrl(g.image_background)} />
                         <Button fontSize={'lg'}
-                            fontWeight={g.id === selectedGenre?.id ? 'bold' : 'normal'} variant={'link'} onClick={() =>
+                            whiteSpace='normal'
+                            textAlign='start'
+                            fontWeight={g.id === selectedGenre?.id ? 'bold' : 'normal'}
+                            variant={'link'}
+                            onClick={() =>
                                 // onSelectedGenre callback function now has fetched genre as its paramter
                                 onSelectedGenre(g)
                             }>
