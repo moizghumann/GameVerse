@@ -16,13 +16,13 @@ const GameCard = ({ games }: Prop) => {
         <DarkMode>
             <Card>
                 <Image src={getCroppedGameImageUrl(games.background_image)} />
-                <CardBody>
-                    <Heading fontSize={"3xl"} >{games.name}</Heading>
+                <CardBody paddingTop={3} paddingBottom={5}>
                     <HStack marginY={1.5} justifyContent={'space-between'} >
                         {/* always name properties in props acc to data properties in api */}
                         <PlatformsIconList platforms={games.parent_platforms.map(p => p.platform)} />
                         <MetaCritic critic={games.metacritic} />
                     </HStack>
+                    <Heading fontSize={"3xl"} marginTop={0.5}>{games.name}</Heading>
                 </CardBody>
             </Card>
         </DarkMode>
