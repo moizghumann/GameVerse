@@ -1,6 +1,7 @@
 import { Box, Flex, Grid, GridItem, Show } from '@chakra-ui/react'
 import { useState } from 'react'
 import GameGrid from './components/GameGrid'
+import GameHeading from './components/GameHeading'
 import GenreSideBar from './components/GenreSideBar'
 import NavBar from './components/NavBar'
 import PlatformFilter from './components/PlatformFilter'
@@ -44,16 +45,21 @@ const App = () => {
         </GridItem>
       </Show>
       <GridItem area='main'>
-        {/* 
+        <Box paddingLeft={'20px'}>
+
+          <GameHeading gameQuery={gameQuery} />
+
+          {/* 
             1. onSelectedPlatform gets the value of selected platform from platformFilter function and updates the state thru a callback function
             2. now we need to send the updated state back to platformFilter function to show the selected platform, so we pass the state gameQuery.platform in selectedPlatform      
         */}
-        <Flex paddingLeft={'20px'} marginBottom={2}>
-          <PlatformFilter selectedPlatform={gameQuery.platform} onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
-          <Box marginLeft={4}>
-            <SortSelector sortOrder={gameQuery.sortOrder} setSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })} />
-          </Box>
-        </Flex>
+          <Flex marginBottom={2}>
+            <PlatformFilter selectedPlatform={gameQuery.platform} onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
+            <Box marginLeft={4}>
+              <SortSelector sortOrder={gameQuery.sortOrder} setSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })} />
+            </Box>
+          </Flex>
+        </Box>
 
         {/* 
         1. destruction here allows to pass individual properties of the gameQuery object as separate props to the GameGrid component.
