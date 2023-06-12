@@ -20,22 +20,33 @@ const GenreSideBar = ({ onSelectedGenre, selectedGenre }: Prop) => {
                 {loading && skeletons.map(skeleton => <ListItem paddingY={2} key={skeleton}>
                     <GenreSideBarSkeleton />
                 </ListItem>)}
-                {data?.map(g => <ListItem paddingY={1.5} key={g.id}>
-                    <HStack>
-                        <Image boxSize={'35px'} borderRadius={10} src={getCroppedGameImageUrl(g.image_background)} />
-                        <Button fontSize={'lg'}
-                            whiteSpace='normal'
-                            textAlign='start'
-                            fontWeight={g.id === selectedGenre?.id ? 'bold' : 'normal'}
-                            variant={'link'}
-                            onClick={() =>
-                                // onSelectedGenre callback function now has fetched genre as its paramter
-                                onSelectedGenre(g)
-                            }>
-                            {g.name}
-                        </Button>
-                    </HStack>
-                </ListItem>)}
+
+                {data?.map(g =>
+                    <ListItem paddingY={1.5} key={g.id}>
+
+                        <HStack>
+                            <Image
+                                // image will be scaled to fit container, while preserving its aspect ratio 
+                                objectFit='cover'
+                                boxSize={'35px'}
+                                borderRadius={10}
+                                src={getCroppedGameImageUrl(g.image_background)}
+                            />
+
+                            <Button fontSize={'lg'}
+                                whiteSpace='normal'
+                                textAlign='start'
+                                fontWeight={g.id === selectedGenre?.id ? 'bold' : 'normal'}
+                                variant={'link'}
+                                onClick={() =>
+                                    // onSelectedGenre callback function now has fetched genre as its paramter
+                                    onSelectedGenre(g)
+                                }>
+                                {g.name}
+                            </Button>
+                        </HStack>
+
+                    </ListItem>)}
             </List>
         </>
     )
