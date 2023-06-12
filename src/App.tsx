@@ -13,6 +13,7 @@ export interface GameQuery {
   genre: Genres | null;
   platform: Platform | null;
   sortOrder: string;
+  search: string;
 }
 
 const App = () => {
@@ -33,7 +34,7 @@ const App = () => {
       }}
       gap={1}>
       <GridItem area='nav'>
-        <NavBar />
+        <NavBar onSearch={(search) => setGameQuery({ ...gameQuery, search })} />
       </GridItem>
       {/* s The Show component controls the visibility of its children based on the screen size */}
       <Show above='lg'>

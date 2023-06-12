@@ -1,5 +1,6 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react"
-import { FaChevronDown } from "react-icons/fa"
+import { useState } from "react";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa"
 
 interface Prop {
     setSortOrder: (sortOrder: string) => void;
@@ -7,6 +8,8 @@ interface Prop {
 }
 
 const SortSelector = ({ setSortOrder, sortOrder }: Prop) => {
+
+    const [toggle, setToggle] = useState(false);
 
     const sortOrders = [
         { value: '', label: 'Relevance' },
@@ -22,14 +25,21 @@ const SortSelector = ({ setSortOrder, sortOrder }: Prop) => {
 
     return (
         <Menu>
-            <MenuButton as={Button} rightIcon={<FaChevronDown />}>
+            <MenuButton as={Button} onClick={() => setToggle(!toggle)} rightIcon={toggle ? <FaChevronUp /> : <FaChevronDown />}>
                 Order by: {currentOrder?.label || 'Relevance'}
             </MenuButton>
             <MenuList>
-                {sortOrders.map(order => <MenuItem key={order.value} value={order.value} onClick={() => setSortOrder(order.value)}>{order.label}</MenuItem>)}
+                {sortOrders.map(order => <MenuItem key={order.value}
+                    value={order.value}
+                    onClick={() => {
+                        setSortOrder(order.value);
+                        setToggle(!toggle)
+                    }}>
+                    {order.label}
+                </MenuItem>)}
             </MenuList>
 
-        </Menu>
+        </Menu >
     )
 }
 
