@@ -1,9 +1,10 @@
-import { Grid, GridItem, Show } from '@chakra-ui/react'
+import { Grid, GridItem, HStack, Show } from '@chakra-ui/react'
 import { useState } from 'react'
 import GameGrid from './components/GameGrid'
 import GenreSideBar from './components/GenreSideBar'
 import NavBar from './components/NavBar'
 import PlatformFilter from './components/PlatformFilter'
+import SortSelector from './components/SortSelector'
 import { Platform } from './hooks/useGames'
 import { Genres } from './hooks/useGenre'
 
@@ -15,6 +16,7 @@ export interface GameQuery {
 
 const App = () => {
 
+  // By initializing gameQuery' initial state value as an empty object ({}), we ensure that gameQuery starts with default values of null for both genre and platform properties.
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
 
   return (
@@ -44,9 +46,17 @@ const App = () => {
             1. onSelectedPlatform gets the value of selected platform from platformFilter function and updates the state thru a callback function
             2. now we need to send the updated state back to platformFilter function to show the selected platform, so we pass the state gameQuery.platform in selectedPlatform      
         */}
-        <PlatformFilter selectedPlatform={gameQuery.platform} onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
+        <HStack paddingLeft={'20px'} spacing={4} marginBottom={2}>
+          <PlatformFilter selectedPlatform={gameQuery.platform} onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
+          <SortSelector />
+        </HStack>
 
-        {/* passing the state values to gameGrid component */}
+
+        {/* 
+        1. destruction here allows to pass individual properties of the gameQuery object as separate props to the GameGrid component.
+        2. spreading it as {...gameQuery} will result in two separate props being passed to the GameGrid component: genre={gameQuery.genre} and platform={gameQuery.platform}
+        3. This can be useful if the GameGrid component expects these properties as separate props and accesses them individually within its implementation. It allows for a more concise and readable way of passing multiple props from an object.
+         */}
         <GameGrid {...gameQuery} />
       </GridItem>
     </Grid>

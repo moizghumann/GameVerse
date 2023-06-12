@@ -16,20 +16,18 @@ const PlatformFilter = ({ onSelectedPlatform, selectedPlatform }: Prop) => {
 
 
     return (
-        <Box paddingX={'20px'}>
-            <Menu>
-                <MenuButton as={Button} onClick={() => setToggle(!toggle)}
-                    rightIcon={toggle ? <FaChevronUp /> : <FaChevronDown />}>
-                    {selectedPlatform?.name || 'Platform'}
-                </MenuButton>
-                <MenuList>
-                    {data?.map((platform) => <MenuItem
-                        key={platform.id}
-                        onClick={() => onSelectedPlatform(platform)}
-                    >{platform.name}</MenuItem>)}
-                </MenuList>
-            </Menu>
-        </Box>
+        <Menu>
+            <MenuButton as={Button} onClick={() => setToggle(!toggle)}
+                rightIcon={toggle ? <FaChevronUp /> : <FaChevronDown />}>
+                {selectedPlatform?.name || 'Platform'}
+            </MenuButton>
+            <MenuList>
+                {data?.map((platform) => <MenuItem
+                    key={platform.id}
+                    onClick={() => onSelectedPlatform(platform)}
+                >{platform.name}</MenuItem>)}
+            </MenuList>
+        </Menu>
     )
 }
 
