@@ -23,7 +23,7 @@ const PlatformFilter = ({ onSelectedPlatform, selectedPlatform }: Prop) => {
                     {selectedPlatform?.name || 'Platform'}
                 </MenuButton>
                 <MenuList>
-                    {data && data.map((platform) => <MenuItem
+                    {data?.map((platform) => <MenuItem
                         key={platform.id}
                         onClick={() => onSelectedPlatform(platform)}
                     >{platform.name}</MenuItem>)}

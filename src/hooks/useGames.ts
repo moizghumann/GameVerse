@@ -1,5 +1,5 @@
+import { GameQuery } from '../App';
 import useData from './useData';
-import { Genres } from './useGenre';
 
 export interface Platform {
     id: number;
@@ -16,7 +16,7 @@ export interface Game {
     metacritic: number;
 }
 
-const useGames = (selectedGenre: Genres | null, selectedPlatform: Platform | null) => useData<Game>('/games',
+const useGames = (gameQuery: GameQuery) => useData<Game>('/games',
     // {} is a request configuration object, a second parameter to our useData() hook with a key params which has a query parameter with object value 
     // { params: {genres: selectedGenre?.id} }
 
@@ -27,12 +27,11 @@ const useGames = (selectedGenre: Genres | null, selectedPlatform: Platform | nul
     // the query parameter 'genres' with a value of 'selectedGenre?.id' will be added to the request URL like this: '/games?genres=selectedGenreIdValue'. The API server will then process the request based on this query parameter and return the corresponding data.
     {
         params: {
-            genres: selectedGenre?.id,
-            platforms: selectedPlatform?.id
+            genres: gameQuery.genre?.id,
+            platforms: gameQuery.platform?.id
         }
-    }, [
-    selectedGenre?.id,
-    selectedPlatform?.id
-])
+
+    }, [gameQuery]
+)
 
 export default useGames
