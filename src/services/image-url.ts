@@ -1,7 +1,9 @@
+import noImage from '../assets/no-image-placeholder.webp'
+
 
 const getCroppedGameImageUrl = (url: string) => {
 
-    if (url === null) return '';
+    if (url === null) return noImage;
 
     const target = 'media/'
     // calculating the index at which the target substring ends, by adding the length of the target string to the starting index.
