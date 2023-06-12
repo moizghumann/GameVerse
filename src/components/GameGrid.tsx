@@ -5,11 +5,9 @@ import GameCard from "./GameCard";
 import GameCardContainer from "./GameCardContainer";
 import GameCardSkeleton from "./GameCardSkeleton";
 
-interface Prop {
-    gameQuery: GameQuery;
-}
 
-const GameGrid = ({ gameQuery }: Prop) => {
+
+const GameGrid = (gameQuery: GameQuery) => {
     // curly braces because it got imported like that. its a custom hook. check useGames.ts file
     const { data, error, loading } = useGames(gameQuery);
 

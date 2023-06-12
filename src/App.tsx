@@ -47,7 +47,7 @@ const App = () => {
         <PlatformFilter selectedPlatform={gameQuery.platform} onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />
 
         {/* passing the state values to gameGrid component */}
-        <GameGrid gameQuery={gameQuery} />
+        <GameGrid {...gameQuery} />
       </GridItem>
     </Grid>
 
