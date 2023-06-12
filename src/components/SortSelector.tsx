@@ -10,11 +10,11 @@ const SortSelector = ({ setSortOrder, sortOrder }: Prop) => {
 
     const sortOrders = [
         { value: '', label: 'Relevance' },
-        { value: '-added', label: 'Date Added' },
-        { value: 'name', label: 'Name' },
-        { value: '-released', label: 'Release Date' },
         { value: '-metacritic', label: 'Popularity' },
-        { value: '-rating', label: 'Average Rating' }
+        { value: '-released', label: 'Release Date' },
+        { value: '-rating', label: 'Rating' },
+        { value: 'name', label: 'Name' },
+        { value: '-added', label: 'Date Added' }
     ];
 
     const currentOrder = sortOrders.find(order => order.value === sortOrder)
