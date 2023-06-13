@@ -1,4 +1,3 @@
-import { Game } from "../hooks/useGames";
 import bullsEye from '../assets/bulseye.png';
 import thumbsUp from '../assets/thumbsup.png';
 import noEntry from '../assets/noentry.png';
