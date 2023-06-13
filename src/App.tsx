@@ -22,6 +22,8 @@ const App = () => {
   // By initializing gameQuery' initial state value as an empty object ({}), we ensure that gameQuery starts with default values of null for both genre and platform properties.
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
 
+
+
   return (
     // "" is a row
     // "a b c " a b c are columns 
