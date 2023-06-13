@@ -23,7 +23,17 @@ const theme = extendTheme({
             800: '#121212',
             900: '#111',
         }
-    }
+    },
+    styles: {
+        global: {
+            'h1, h2': {
+                textTransform: 'none !important',
+            },
+            button: {
+                textTransform: 'none',
+            },
+        },
+    },
 })
 
 export default theme

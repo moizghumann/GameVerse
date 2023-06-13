@@ -12,8 +12,9 @@ interface Prop {
 const PlatformFilter = ({ onSelectedPlatform, selectedPlatform }: Prop) => {
 
     const [toggle, setToggle] = useState(false)
-    const { data } = usePlatform()
+    const { data, error } = usePlatform()
 
+    if (error) return null;
 
     return (
         <Menu>
