@@ -2,21 +2,24 @@ import { Game } from "../hooks/useGames";
 import bullsEye from '../assets/bulseye.png';
 import thumbsUp from '../assets/thumbsup.png';
 import noEntry from '../assets/noentry.png';
-import { Image } from "@chakra-ui/image";
-import { Box } from "@chakra-ui/layout";
+import { Image, ImageProps } from "@chakra-ui/image";
 
 interface Prop {
-    games: Game;
+    rating: number;
 }
 
-const Emoji = ({ games }: Prop) => {
-    let emoji = games.metacritic > 89 ? bullsEye : games.metacritic > 74 ? thumbsUp : games.metacritic > 59 ? noEntry : null;
+const Emoji = ({ rating }: Prop) => {
+    if (rating < 3) return null;
+
+    let emojiMap: { [key: number]: ImageProps } = {
+        3: { src: noEntry, alt: 'not recommended', boxSize: '25px' },
+        4: { src: thumbsUp, alt: 'recommended', boxSize: '25px' },
+        5: { src: bullsEye, alt: 'best', boxSize: '35px' }
+
+    }
+
     return (
-        <>
-            <Box marginTop={2}>
-                {emoji && <Image boxSize={'35px'} src={emoji} />}
-            </Box>
-        </>
+        <Image {...emojiMap[rating]} />
 
     )
 }
