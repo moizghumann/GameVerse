@@ -31,15 +31,15 @@ const App = () => {
     }}
       templateColumns={{
         base: '1fr',
-        lg: '215px 1fr'
+        lg: '250px 1fr'
       }}
       gap={1}>
-      <GridItem area='nav'>
+      <GridItem area='nav' marginBottom={5}>
         <NavBar onSearch={(search) => setGameQuery({ ...gameQuery, search })} />
       </GridItem>
       {/* s The Show component controls the visibility of its children based on the screen size */}
       <Show above='lg'>
-        <GridItem area='aside' borderRadius={10} paddingLeft={4}>
+        <GridItem area='aside' borderRadius={10} paddingLeft={10} paddingBottom={8}>
           {/* getting data as prop from GenreSideBar to pass it as a prop to GameGrid to show only the selected GameCards by configuring the api request */}
           <GenreSideBar selectedGenre={gameQuery.genre} onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre })} />
         </GridItem>

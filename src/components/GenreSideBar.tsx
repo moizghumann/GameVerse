@@ -17,10 +17,10 @@ const GenreSideBar = ({ onSelectedGenre, selectedGenre }: Prop) => {
     return (
         <>
             <Heading
-                marginBottom={4}
+                marginBottom={2}
                 fontSize={'2xl'}
                 paddingTop={3.5}
-                paddingLeft={'3px'}
+
             >
                 Genres
             </Heading>
@@ -42,7 +42,7 @@ const GenreSideBar = ({ onSelectedGenre, selectedGenre }: Prop) => {
                                 src={getCroppedGameImageUrl(g.image_background)}
                             />
 
-                            <Button fontSize={'lg'}
+                            <Button fontSize={'17px'}
                                 whiteSpace='normal'
                                 textAlign='start'
                                 fontWeight={g.id === selectedGenre?.id ? 'bold' : 'normal'}
