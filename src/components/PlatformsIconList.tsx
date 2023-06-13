@@ -55,7 +55,7 @@ const PlatformsIconList = ({ platforms }: Prop) => {
       4. We use the as={} prop of the Icon component to dynamically assign the corresponding icon component to be rendered. 
       */}
       {platforms.map(p => (
-        <Icon key={p.id} as={Iconmap[p.slug]} color='gray.400' />
+        <Icon key={p.id} as={Iconmap[p.slug]} color='gray.200' />
       ))}
     </HStack>
   )

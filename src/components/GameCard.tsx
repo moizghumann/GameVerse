@@ -1,6 +1,7 @@
 import { Card, CardBody, Heading, HStack, Image, DarkMode } from "@chakra-ui/react";
 import { Game } from "../hooks/useGames"
 import getCroppedGameImageUrl from "../services/image-url";
+import Emoji from "./Emoji";
 import MetaCritic from "./MetaCritic";
 import PlatformsIconList from "./PlatformsIconList";
 
@@ -11,6 +12,7 @@ interface Prop {
 }
 
 const GameCard = ({ games }: Prop) => {
+
     return (
         // overflow -> css property -> used to control how content that exceeds the size of its container is displayed
         <DarkMode>
@@ -23,6 +25,8 @@ const GameCard = ({ games }: Prop) => {
                         <MetaCritic critic={games.metacritic} />
                     </HStack>
                     <Heading fontSize={"3xl"} marginTop={0.5}>{games.name}</Heading>
+                    <Emoji games={games} />
+
                 </CardBody>
             </Card>
         </DarkMode>
