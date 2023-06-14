@@ -4,6 +4,7 @@ import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardContainer from "./GameCardContainer";
 import GameCardSkeleton from "./GameCardSkeleton";
+import ZoomComponent from "./ZoomComponent";
 
 
 
@@ -30,9 +31,12 @@ const GameGrid = (gameQuery: GameQuery) => {
 
             {
                 data?.map(game =>
-                    <GameCardContainer key={game.id} >
-                        <GameCard games={game} />
-                    </GameCardContainer>)
+                    <ZoomComponent>
+                        <GameCardContainer key={game.id} >
+                            <GameCard games={game} />
+                        </GameCardContainer>
+                    </ZoomComponent>
+                )
             }
         </SimpleGrid>
     )
