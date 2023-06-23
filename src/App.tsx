@@ -6,7 +6,7 @@ import GenreSideBar from './components/GenreSideBar'
 import NavBar from './components/NavBar'
 import PlatformFilter from './components/PlatformFilter'
 import SortSelector from './components/SortSelector'
-import { Platform } from './hooks/useGames'
+import { Platform } from './hooks/usePlatform'
 import { Genres } from './hooks/useGenre'
 
 // query object in order to refactor the code
