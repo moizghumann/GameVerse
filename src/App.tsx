@@ -52,7 +52,7 @@ const App = () => {
 
           {/* 
             1. onSelectedPlatform gets the value of selected platform from platformFilter function and updates the state thru a callback function
-            2. now we need to send the updated state back to platformFilter function to show the selected platform, so we pass the state gameQuery.platform in selectedPlatform      
+            2. now we need to send the updated state back to platformFilter function to show the selected platform, so we can pass the state gameQuery.platform in selectedPlatform      
         */}
           <Flex marginBottom={2}>
             <PlatformFilter selectedPlatform={gameQuery.platform} onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platform })} />

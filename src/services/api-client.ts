@@ -1,5 +1,10 @@
 import axios from 'axios';
 
+export interface FetchData<T> {
+    count: number;
+    results: T[];
+}
+
 export default axios.create({
     // property names are hardcoded, eg cant yse apiKey here instead of key
     baseURL: 'https://api.rawg.io/api',

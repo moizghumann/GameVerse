@@ -1,4 +1,4 @@
-import { AxiosRequestConfig, CanceledError } from "axios";
+/** import { AxiosRequestConfig, CanceledError } from "axios";
 import { useState, useEffect } from "react";
 import apiClient from "../services/api-client";
 
@@ -8,10 +8,10 @@ export interface FetchData<T> {
     results: T[];
 }
 
-// Custom hook to fetch data from an API endpoint
-// endpoint: The URL or path of the API endpoint to fetch data from
-// requestConfig: Optional configuration object for customizing the API request (e.g., headers, query parameters)
-// deps: Optional array of dependencies that triggers a re-fetch when changed (e.g., selectedGenre)
+Custom hook to fetch data from an API endpoint
+endpoint: The URL or path of the API endpoint to fetch data from
+requestConfig: Optional configuration object for customizing the API request (e.g., headers, query parameters)
+deps: Optional array of dependencies that triggers a re-fetch when changed (e.g., selectedGenre)
 const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
     const [data, setData] = useState<T[]>();
     const [error, setError] = useState();
@@ -47,4 +47,7 @@ const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?:
     return { data, error, loading }
 }
 
-export default useData;
+export default useData; */
+
+// dos nothing, just to prevent error
+export { }
