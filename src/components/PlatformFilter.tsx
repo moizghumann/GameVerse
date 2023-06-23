@@ -1,8 +1,8 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
 import { useState } from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
-
 import usePlatform, { Platform } from '../hooks/usePlatform';
+
 
 interface Prop {
     onSelectedPlatform: (platform: Platform) => void;
