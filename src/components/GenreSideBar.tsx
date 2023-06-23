@@ -11,7 +11,7 @@ interface Prop {
 
 const GenreSideBar = ({ onSelectedGenre, selectedGenre }: Prop) => {
 
-    const { data, loading } = useGenre();
+    const { data, isLoading } = useGenre();
     const skeletons = Array.from({ length: 16 }, (_, index) => index + 1);
 
     return (
@@ -26,11 +26,11 @@ const GenreSideBar = ({ onSelectedGenre, selectedGenre }: Prop) => {
             </Heading>
 
             <List>
-                {loading && skeletons.map(skeleton => <ListItem paddingY={2} key={skeleton}>
+                {isLoading && skeletons.map(skeleton => <ListItem paddingY={2} key={skeleton}>
                     <GenreSideBarSkeleton />
                 </ListItem>)}
 
-                {data?.map(g =>
+                {data?.results.map(g =>
                     <ListItem paddingY={1.5} key={g.id}>
 
                         <HStack>

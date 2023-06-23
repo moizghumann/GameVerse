@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import apiClient from "../services/api-client";
 
 
-interface FetchData<T> {
+export interface FetchData<T> {
     count: number;
     results: T[];
 }

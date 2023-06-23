@@ -23,7 +23,6 @@ const App = () => {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
 
 
-
   return (
     // "" is a row
     // "a b c " a b c are columns 
