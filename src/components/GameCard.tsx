@@ -24,7 +24,10 @@ const GameCard = ({ games }: Prop) => {
                         <PlatformsIconList platforms={games.parent_platforms.map(p => p.platform)} />
                         <MetaCritic critic={games.metacritic} />
                     </HStack>
-                    <Heading fontSize={"3xl"} marginTop={0.5}>{games.name}<Emoji rating={games.rating_top} /></Heading>
+                    <Heading fontSize={"3xl"} marginTop={0.5}>
+                        {games.name}
+                        <Emoji rating={games.rating_top} />
+                    </Heading>
 
                 </CardBody>
             </Card>
