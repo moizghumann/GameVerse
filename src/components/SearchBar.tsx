@@ -20,7 +20,7 @@ const SearchBar = ({ onSearch }: Prop) => {
                     <InputLeftElement pointerEvents='none' paddingLeft={2} paddingTop={'0.9px'}>
                         <BiSearch color='gray.300' />
                     </InputLeftElement>
-                    <Input ref={ref} type='text' placeholder='Search games' borderRadius={20} width={'39%'} minWidth={250} />
+                    <Input ref={ref} type='text' placeholder='Search games' borderRadius={20} width={'39%'} minWidth={150} />
                 </InputGroup>
             </form>
         </>
