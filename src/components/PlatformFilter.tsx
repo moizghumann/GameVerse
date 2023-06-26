@@ -1,18 +1,21 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
 import { useState } from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
-import usePlatform, { Platform } from '../hooks/usePlatform';
+import usePlatforms from '../hooks/usePlatforms';
 
 
 interface Prop {
-    onSelectedPlatform: (platform: Platform) => void;
-    selectedPlatform: Platform | null;
+    onSelectedPlatform: (a: number) => void;
+    selectedPlatformID?: number;
 }
 
-const PlatformFilter = ({ onSelectedPlatform, selectedPlatform }: Prop) => {
+const PlatformFilter = ({ onSelectedPlatform, selectedPlatformID }: Prop) => {
 
     const [toggle, setToggle] = useState(false)
-    const { data, error } = usePlatform()
+    const { data: platforms, error } = usePlatforms()
+
+    const selectedPlatform = platforms?.results.find(p => p.id === selectedPlatformID)
+    const current = selectedPlatform?.name
 
     if (error) return null;
 
@@ -20,12 +23,12 @@ const PlatformFilter = ({ onSelectedPlatform, selectedPlatform }: Prop) => {
         <Menu>
             <MenuButton as={Button} onClick={() => setToggle(!toggle)}
                 rightIcon={toggle ? <FaChevronUp /> : <FaChevronDown />}>
-                {selectedPlatform?.name || 'Platform'}
+                {current || 'Platform'}
             </MenuButton>
             <MenuList>
-                {data?.results.map((platform) => <MenuItem
+                {platforms?.results.map((platform) => <MenuItem
                     key={platform.id}
-                    onClick={() => { onSelectedPlatform(platform); setToggle(!toggle) }}
+                    onClick={() => { onSelectedPlatform(platform.id); setToggle(!toggle) }}
 
                 >{platform.name}</MenuItem>)}
             </MenuList>

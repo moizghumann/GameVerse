@@ -11,7 +11,7 @@ import { SiNintendo } from 'react-icons/si';
 import { BsGlobe } from 'react-icons/bs'
 import { HStack, Icon } from "@chakra-ui/react"
 import { IconType } from 'react-icons';
-import { Platform } from '../hooks/usePlatform';
+import { Platform } from '../hooks/usePlatforms';
 
 interface Prop {
   // back in GameCard.tsx, .map function iterate over elements in an array and perform a specific operation on each element. thus platforms should be an array of strings rather than only string
