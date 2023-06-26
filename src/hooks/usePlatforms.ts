@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import ms from 'ms';
 import platforms from '../data/platforms';
 import APIClient from '../services/api-client';
 
@@ -14,7 +15,7 @@ export interface Platform {
 const usePlatforms = () => useQuery({
     queryKey: ['platform'],
     queryFn: apiClient.getAll,
-    staleTime: 24 * 60 * 60 * 1000, // 24h
+    staleTime: ms('1 day'), // 24h
 
     // setting initial data to following will have a type error, since the promise returned by queryfn here is of type <FetchData<Platform>>
     // while the initial data here is undefined initially

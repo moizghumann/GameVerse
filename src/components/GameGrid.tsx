@@ -35,8 +35,8 @@ const GameGrid = (gameQuery: GameQuery) => {
 
                 {data?.pages.map((page, index) =>
                     <React.Fragment key={index}>
-                        {page.results.map((game, index) =>
-                            <ZoomComponent key={index}>
+                        {page.results.map((game) =>
+                            <ZoomComponent>
                                 <GameCardContainer key={game.id} >
                                     <GameCard games={game} />
                                 </GameCardContainer>
