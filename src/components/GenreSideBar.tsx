@@ -2,17 +2,16 @@ import { Button, Heading, HStack, Image, List, ListItem } from '@chakra-ui/react
 import useGenres from '../hooks/useGenres'
 import getCroppedGameImageUrl from '../services/image-url';
 import GenreSideBarSkeleton from './GenreSideBarSkeleton';
+import useGameQueryStore from '../state-management/gameQueryStore';
 
-interface Prop {
-    // callback function property to get selected genre as its paramter
-    onSelectedGenre: (a: number) => void;
-    selectedGenreID?: number;
-}
 
-const GenreSideBar = ({ onSelectedGenre, selectedGenreID }: Prop) => {
+const GenreSideBar = () => {
 
     const { data, isLoading } = useGenres();
     const skeletons = Array.from({ length: 16 }, (_, index) => index + 1);
+
+    const selectedGenreID = useGameQueryStore(s => s.gameQuery.genreID);
+    const updateSelectedGenreID = useGameQueryStore(s => s.updateGenreID)
 
     return (
         <>
@@ -48,8 +47,8 @@ const GenreSideBar = ({ onSelectedGenre, selectedGenreID }: Prop) => {
                                 fontWeight={g.id === selectedGenreID ? 'bold' : 'normal'}
                                 variant={'link'}
                                 onClick={() =>
-                                    // onSelectedGenre callback function now has fetched genre as its paramter
-                                    onSelectedGenre(g.id)
+                                    // updateSelectedGenreID callback function now has fetched genre as its paramter
+                                    updateSelectedGenreID(g.id)
                                 }>
                                 {g.name}
                             </Button>

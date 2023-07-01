@@ -1,5 +1,4 @@
 import { Box, Flex, Grid, GridItem, Show } from '@chakra-ui/react'
-import { useState } from 'react'
 import GameGrid from './components/GameGrid'
 import GameHeading from './components/GameHeading'
 import GenreSideBar from './components/GenreSideBar'
@@ -7,19 +6,8 @@ import NavBar from './components/NavBar'
 import PlatformFilter from './components/PlatformFilter'
 import SortSelector from './components/SortSelector'
 
-// query object in order to refactor the code
-export interface GameQuery {
-  genreID?: number;
-  platformID?: number;
-  sortOrder: string;
-  search: string;
-}
 
 const App = () => {
-
-  // By initializing gameQuery' initial state value as an empty object ({}), we ensure that gameQuery starts with default values of null for both genre and platform properties.
-  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
-
 
   return (
     // "" is a row
@@ -35,30 +23,29 @@ const App = () => {
       gap={1}
     >
 
-
       <GridItem area='nav' marginBottom={5}>
-        <NavBar onSearch={(search) => setGameQuery({ ...gameQuery, search })} />
+        <NavBar />
       </GridItem>
 
       {/* The Show component controls the visibility of its children based on the screen size */}
       <Show above='lg'>
         <GridItem area='aside' borderRadius={10} paddingLeft={10} paddingBottom={8}>
           {/* getting data as prop from GenreSideBar to pass it as a prop to GameGrid to show only the selected GameCards by configuring the api request */}
-          <GenreSideBar selectedGenreID={gameQuery.genreID} onSelectedGenre={(IDnumber) => setGameQuery({ ...gameQuery, genreID: IDnumber })} />
+          <GenreSideBar />
         </GridItem>
       </Show>
 
       <GridItem area='main'>
         <Box paddingLeft={'20px'} >
-          <GameHeading gameQuery={gameQuery} />
+          <GameHeading />
           {/* 
             1. onSelectedPlatform gets the value of selected platform from platformFilter function and updates the state thru a callback function
             2. now we need to send the updated state back to platformFilter function to show the selected platform, so we can pass the state gameQuery.platform in selectedPlatform      
         */}
           <Flex marginBottom={2}>
-            <PlatformFilter selectedPlatformID={gameQuery.platformID} onSelectedPlatform={(platform) => setGameQuery({ ...gameQuery, platformID: platform })} />
+            <PlatformFilter />
             <Box marginLeft={4}>
-              <SortSelector sortOrder={gameQuery.sortOrder} setSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })} />
+              <SortSelector />
             </Box>
           </Flex>
         </Box>
@@ -68,7 +55,7 @@ const App = () => {
         3. This can be useful if the GameGrid component expects these properties as separate props and accesses them individually within its implementation. It allows for a more concise and readable way of passing multiple props from an object.
          */}
 
-        <GameGrid {...gameQuery} />
+        <GameGrid />
       </GridItem>
     </Grid>
 

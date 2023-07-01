@@ -1,8 +1,8 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { GameQuery } from '../App';
 import APIClient, { FetchData } from '../services/api-client';
 import { Platform } from './usePlatforms';
 import ms from 'ms';
+import useGameQueryStore from '../state-management/gameQueryStore';
 
 //               class APIClient<T>
 const apiClient = new APIClient<Game>('/games')
@@ -19,26 +19,31 @@ export interface Game {
     rating_top: number;
 }
 
-const useGames = (gameQuery: GameQuery) => useInfiniteQuery<FetchData<Game>, Error>({
-    queryKey: ['games', gameQuery],
-    // queryFn is expected to be a function that takes no arguments and returns a Promise. This function is responsible for performing the actual data fetching logic.
-    // since we need to pass configuration as arguments to getAll method and queryFn does not expect any argument in its callback function, we use an addition callback wrapper with no arguments
-    queryFn: ({ pageParam = 1 }) =>
-        apiClient
-            .getAll({
-                params: {
-                    genres: gameQuery?.genreID,
-                    parent_platforms: gameQuery?.platformID,
-                    ordering: gameQuery.sortOrder,
-                    search: gameQuery.search,
-                    page: pageParam
-                }
-            }),
-    getNextPageParam: (lastPage, allPages) => {
-        return lastPage.next ? allPages.length + 1 : undefined
-    },
-    staleTime: ms('1 day') // 24hr
-})
+const useGames = () => {
+
+    const gameQuery = useGameQueryStore(s => s.gameQuery)
+
+    return useInfiniteQuery<FetchData<Game>, Error>({
+        queryKey: ['games', gameQuery],
+        // queryFn is expected to be a function that takes no arguments and returns a Promise. This function is responsible for performing the actual data fetching logic.
+        // since we need to pass configuration as arguments to getAll method and queryFn does not expect any argument in its callback function, we use an addition callback wrapper with no arguments
+        queryFn: ({ pageParam = 1 }) =>
+            apiClient
+                .getAll({
+                    params: {
+                        genres: gameQuery?.genreID,
+                        parent_platforms: gameQuery?.platformID,
+                        ordering: gameQuery.sortOrder,
+                        search: gameQuery.search,
+                        page: pageParam
+                    }
+                }),
+        getNextPageParam: (lastPage, allPages) => {
+            return lastPage.next ? allPages.length + 1 : undefined
+        },
+        staleTime: ms('1 day') // 24hr
+    })
+}
 
 // const useGames = (gameQuery: GameQuery) => useData<Game>('/games',
 //     // {} is a request configuration object, a second parameter to our useData() hook with a key params which has a query parameter with object value 

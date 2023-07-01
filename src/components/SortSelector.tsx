@@ -1,15 +1,14 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react"
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa"
+import useGameQueryStore from "../state-management/gameQueryStore";
 
-interface Prop {
-    setSortOrder: (sortOrder: string) => void;
-    sortOrder: string;
-}
 
-const SortSelector = ({ setSortOrder, sortOrder }: Prop) => {
+const SortSelector = () => {
 
     const [toggle, setToggle] = useState(false);
+    const sortOrder = useGameQueryStore(s => s.gameQuery.sortOrder)
+    const setSortOrder = useGameQueryStore(s => s.updateSortOrder)
 
     const sortOrders = [
         { value: '', label: 'Relevance' },

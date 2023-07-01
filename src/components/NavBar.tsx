@@ -3,16 +3,13 @@ import logo from '../assets/logo.webp'
 import SearchBar from "./SearchBar"
 import ToggleColorMode from "./ToggleColorMode"
 
-interface Prop {
-    onSearch: (search: string) => void;
-}
 
-const NavBar = ({ onSearch }: Prop) => {
+const NavBar = () => {
     return (
         // hstack is a flex div in chakra with flex-direction: column
         <HStack justifyContent='space-between' padding='15px'>
             <Image src={logo} boxSize='60px' />
-            <SearchBar onSearch={onSearch} />
+            <SearchBar />
             <ToggleColorMode />
         </HStack>
     )

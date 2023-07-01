@@ -1,20 +1,19 @@
 import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
 import { useRef } from 'react';
 import { BiSearch } from 'react-icons/bi';
+import useGameQueryStore from '../state-management/gameQueryStore';
 
-interface Prop {
-    onSearch: (search: string) => void;
-}
 
-const SearchBar = ({ onSearch }: Prop) => {
+const SearchBar = () => {
 
     const ref = useRef<HTMLInputElement>(null)
+    const updateSearch = useGameQueryStore(s => s.updateSearch)
 
     return (
         <>
             <form onSubmit={(event) => {
                 event.preventDefault();
-                if (ref.current) onSearch(ref.current.value);
+                if (ref.current) updateSearch(ref.current.value);
             }} >
                 <InputGroup >
                     <InputLeftElement pointerEvents='none' paddingLeft={2} paddingTop={'0.9px'}>

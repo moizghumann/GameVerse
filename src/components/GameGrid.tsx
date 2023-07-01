@@ -1,7 +1,6 @@
 import { SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { GameQuery } from "../App";
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardContainer from "./GameCardContainer";
@@ -9,10 +8,10 @@ import GameCardSkeleton from "./GameCardSkeleton";
 import ZoomComponent from "./ZoomComponent";
 
 
+const GameGrid = () => {
 
-const GameGrid = (gameQuery: GameQuery) => {
     // curly braces because it got imported like that. its a custom hook. check useGames.ts file
-    const { data, isLoading, error, fetchNextPage, hasNextPage } = useGames(gameQuery);
+    const { data, isLoading, error, fetchNextPage, hasNextPage } = useGames();
     // dummy values for the number of skeletons we want to show during loading
     const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     if (error) return <Text>{error.message}</Text>;
