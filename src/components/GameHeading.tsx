@@ -13,7 +13,7 @@ const GameHeading = () => {
   const genres = useGenre(genreID)
   const platforms = usePlatform(platformID);
 
-  // const heading = `${platforms?.name || ''} ${genres?.name || ''} Games` || `${search || ''} Search Results`
+  // const heading = `${platforms?.name || ''} ${genres?.name || ''} Games`
 
   let heading = '';
 

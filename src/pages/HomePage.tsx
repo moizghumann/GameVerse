@@ -6,6 +6,7 @@ import PlatformFilter from "../components/PlatformFilter"
 import SortSelector from "../components/SortSelector"
 
 const HomePage = () => {
+
     return (
         <>
             <Grid templateAreas={{
