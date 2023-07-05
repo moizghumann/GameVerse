@@ -16,6 +16,7 @@ const GameCard = ({ games }: Prop) => {
     return (
         // overflow -> css property -> used to control how content that exceeds the size of its container is displayed
         <DarkMode>
+
             <Card>
                 <Image src={getCroppedGameImageUrl(games.background_image)} />
                 <CardBody paddingTop={3} paddingBottom={5}>
@@ -31,6 +32,7 @@ const GameCard = ({ games }: Prop) => {
 
                 </CardBody>
             </Card>
+
         </DarkMode>
     )
 }

@@ -16,7 +16,11 @@ interface GameQueryStore {
     updateSearch: (search: string) => void
 }
 
+// The create function takes a callback function as its argument, which receives a set function to update the state.
+// create function returns an object containing initial state and functions, 
+// thus set => ({}) instead of set => {}
 const useGameQueryStore = create<GameQueryStore>(set => ({
+    // Inside the callback, define your initial state and any actions or functions that modify the state.
     gameQuery: {} as GameQuery,
     updateGenreID: genreID =>
         set(store => ({ gameQuery: { ...store.gameQuery, genreID } })),
