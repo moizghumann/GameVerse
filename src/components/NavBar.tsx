@@ -8,7 +8,7 @@ import { Link } from "react-router-dom"
 const NavBar = () => {
     return (
         // hstack is a flex div in chakra with flex-direction: column
-        <HStack justifyContent='space-between' padding='15px'>
+        <HStack justifyContent='space-between' padding='15px' paddingBottom={10}>
             <Link to={'/'}>
                 <Box boxSize={'55px'}>
                     <Image src={logo} />
