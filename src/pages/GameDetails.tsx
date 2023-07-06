@@ -1,6 +1,6 @@
 import { useParams } from "react-router"
 import useGame from "../hooks/useGame";
-import { Box, Heading, Spinner, Text } from "@chakra-ui/react";
+import { Heading, Spinner, Text } from "@chakra-ui/react";
 
 const GameDetails = () => {
 
