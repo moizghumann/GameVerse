@@ -1,6 +1,6 @@
 import { useParams } from "react-router"
 import useGame from "../hooks/useGame";
-import { Heading, Spinner, Text } from "@chakra-ui/react";
+import { Box, Heading, Spinner, Text } from "@chakra-ui/react";
 
 const GameDetails = () => {
 
@@ -30,10 +30,10 @@ const GameDetails = () => {
 
     return (
         <>
-
-            {game.name && <Heading>{game.name}</Heading>}
-            <Text paddingTop={5}>{englishDescription}</Text>
-
+            <Box padding={8}>
+                {game.name && <Heading>{game.name}</Heading>}
+                <Text paddingTop={5}>{englishDescription}</Text>
+            </Box>
         </>
     )
 }
