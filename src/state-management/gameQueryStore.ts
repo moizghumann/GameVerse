@@ -2,8 +2,8 @@ import { create } from "zustand";
 
 // query object in order to refactor the code
 interface GameQuery {
-    genreID?: number;
-    platformID?: number;
+    genreID?: number | undefined;
+    platformID?: number | undefined;
     sortOrder?: string;
     search?: string;
 }
