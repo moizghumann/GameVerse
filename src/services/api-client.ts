@@ -20,10 +20,16 @@ class APIClient<T>{
     constructor(endpoint: string) {
         this.endpoint = endpoint
     }
-
+    // Within the APIClient class, the getAll method takes a config object as a parameter, which includes the params property. The params property contains an object with key-value pairs representing the query parameters to be included in the API request.
     getAll = (config: AxiosRequestConfig) => {
         return axiosInstance
             .get<FetchData<T>>(this.endpoint, config)
+            .then(res => res.data)
+    }
+
+    get = (id: number | string) => {
+        return axiosInstance
+            .get<T>(this.endpoint + '/' + id)
             .then(res => res.data)
     }
 }

@@ -17,7 +17,7 @@ const GameCard = ({ games }: Prop) => {
     return (
         // overflow -> css property -> used to control how content that exceeds the size of its container is displayed
         <DarkMode>
-            <Link to={'/games/:id'}>
+            <Link to={`/games/${games.slug}/${games.id}`}>
                 <Card>
                     <Image src={getCroppedGameImageUrl(games.background_image)} />
                     <CardBody paddingTop={3} paddingBottom={5}>
