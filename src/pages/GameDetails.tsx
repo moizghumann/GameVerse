@@ -3,6 +3,8 @@ import useGame from "../hooks/useGame";
 import { Box, Heading, Spinner } from "@chakra-ui/react";
 import ExpandableText from "../components/ExpandableText";
 import extractEnglishDescription from "../functions/extractEnglishText";
+import GameAttributes from "../components/GameAttributes";
+
 
 const GameDetails = () => {
 
@@ -21,6 +23,7 @@ const GameDetails = () => {
                 {game.name && <Heading>{game.name}</Heading>}
                 <ExpandableText>{englishDescription}</ExpandableText>
             </Box>
+            <GameAttributes games={game} />
         </>
     )
 }

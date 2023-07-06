@@ -13,7 +13,7 @@ interface GameQueryStore {
     updateGenreID: (genreID: number) => void;
     updatePlatformID: (platformID: number) => void;
     updateSortOrder: (sortOrder: string) => void;
-    updateSearch: (search: string) => void
+    updateSearch: (search: string) => void;
 }
 
 // The create function takes a callback function as its argument, which receives a set function to update the state.
@@ -29,7 +29,7 @@ const useGameQueryStore = create<GameQueryStore>(set => ({
     updateSortOrder: sortOrder =>
         set(store => ({ gameQuery: { ...store.gameQuery, sortOrder } })),
     updateSearch: (search) =>
-        set(() => ({ gameQuery: { search } }))
+        set(() => ({ gameQuery: { search } })),
 }))
 
 export default useGameQueryStore
