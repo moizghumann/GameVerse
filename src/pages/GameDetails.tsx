@@ -6,6 +6,7 @@ import extractEnglishDescription from "../functions/extractEnglishText";
 import GameAttributes from "../components/GameAttributes";
 import { Balancer } from "react-wrap-balancer";
 import GameTrailer from "../components/GameTrailer";
+import GameScreenshots from "../components/GameScreenshots";
 
 
 const GameDetails = () => {
@@ -30,6 +31,7 @@ const GameDetails = () => {
             </Box>
             <GameAttributes games={game} />
             <GameTrailer gameID={parsedID} />
+            <GameScreenshots gameID={parsedID} />
         </>
     )
 }
