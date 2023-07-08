@@ -17,7 +17,7 @@ const ExpandableText = ({ children }: Props) => {
     }
     return (
         <>
-            <Text paddingTop={5}>
+            <Text paddingTop={5} paddingRight={20}>
                 {dynamicText}
                 <Button
                     marginLeft={1}

@@ -15,6 +15,7 @@ const GameTrailer = ({ gameID }: Prop) => {
     if (!first) return null;
 
     return first ? (
+
         <video
             title={first.name}
             src={first.data[480]}

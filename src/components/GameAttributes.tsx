@@ -8,7 +8,7 @@ interface Props {
 
 const GameAttributes = ({ games }: Props) => {
     return (
-        <SimpleGrid padding={8} columns={2} spacing={3}>
+        <SimpleGrid marginTop={10} columns={2} spacing={3}>
             <Box height='160px'>
                 <Text color={'gray.600'} paddingBottom={1} fontWeight={'semibold'}>Platforms</Text>
                 {games.parent_platforms.map(p =>
