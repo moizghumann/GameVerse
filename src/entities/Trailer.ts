@@ -1,0 +1,12 @@
+
+export interface Trailer {
+    id: number;
+    name: string;
+    preview: string;
+    data: data;
+}
+
+interface data {
+    480: string;
+    max: string;
+}

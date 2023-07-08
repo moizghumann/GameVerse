@@ -5,12 +5,14 @@ import ExpandableText from "../components/ExpandableText";
 import extractEnglishDescription from "../functions/extractEnglishText";
 import GameAttributes from "../components/GameAttributes";
 import { Balancer } from "react-wrap-balancer";
+import GameTrailer from "../components/GameTrailer";
 
 
 const GameDetails = () => {
 
     const { id } = useParams();
     const { data: game, isLoading, error } = useGame(id!);
+    const parsedID = parseInt(id!);
 
     if (isLoading) return <Spinner />;
     if (error || !game) throw error;
@@ -27,6 +29,7 @@ const GameDetails = () => {
                 </Balancer>
             </Box>
             <GameAttributes games={game} />
+            <GameTrailer gameID={parsedID} />
         </>
     )
 }
