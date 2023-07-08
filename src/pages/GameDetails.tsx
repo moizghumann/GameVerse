@@ -1,10 +1,9 @@
 import { useParams } from "react-router"
 import useGame from "../hooks/useGame";
-import { Box, GridItem, Heading, SimpleGrid, Spinner } from "@chakra-ui/react";
+import { GridItem, Heading, SimpleGrid, Spinner } from "@chakra-ui/react";
 import ExpandableText from "../components/ExpandableText";
 import extractEnglishDescription from "../functions/extractEnglishText";
 import GameAttributes from "../components/GameAttributes";
-import { Balancer } from "react-wrap-balancer";
 import GameTrailer from "../components/GameTrailer";
 import GameScreenshots from "../components/GameScreenshots";
 
