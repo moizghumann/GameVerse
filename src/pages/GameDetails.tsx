@@ -4,6 +4,7 @@ import { Box, Heading, Spinner } from "@chakra-ui/react";
 import ExpandableText from "../components/ExpandableText";
 import extractEnglishDescription from "../functions/extractEnglishText";
 import GameAttributes from "../components/GameAttributes";
+import { Balancer } from "react-wrap-balancer";
 
 
 const GameDetails = () => {
@@ -21,7 +22,9 @@ const GameDetails = () => {
         <>
             <Box padding={8}>
                 {game.name && <Heading>{game.name}</Heading>}
-                <ExpandableText>{englishDescription}</ExpandableText>
+                <Balancer>
+                    <ExpandableText>{englishDescription}</ExpandableText>
+                </Balancer>
             </Box>
             <GameAttributes games={game} />
         </>

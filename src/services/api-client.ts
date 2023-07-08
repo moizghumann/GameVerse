@@ -7,7 +7,7 @@ export interface FetchData<T> {
 }
 
 const axiosInstance = axios.create({
-    // property names are hardcoded, eg cant use apiKey here instead of key
+    // property names are hardcoded, e.g cant use apiKey here instead of key
     baseURL: 'https://api.rawg.io/api',
     params: {
         key: '3292e892d48d42d4a27f039de47b7911'
