@@ -19,11 +19,16 @@ Welcome to Gameverse! This is a web application built using React, TypeScript, Z
 
 To run the Gameverse application locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/yourusername/gameverse.git`
-2. Navigate to the project directory: `cd gameverse`
-3. Install the dependencies: `npm install`
-4. Start the development server: `npm start`
-5. Open your web browser and go to `http://localhost:3000`
+1. Clone the repository: 
+`git clone https://github.com/yourusername/gameverse.git`
+2. Navigate to the project directory: 
+`cd gameverse`
+3. Install the dependencies: 
+`npm install`
+4. Start the development server: 
+`npm start`
+5. Open your web browser and go to: 
+`http://localhost:3000`
 
 ## Usage
 
