@@ -1,8 +1,8 @@
 # Gameverse
 
-Welcome to Gameverse! This is a web application built using React, TypeScript, Zustand, React Router, React Query, and Chakra UI. Gameverse is a platform for exploring and discovering video games, where users can find information about games, view their details, and filter through different genres, platforms and more.
+GameVerse is a web application built using React, TypeScript, Zustand, React Router, React Query, and Chakra UI. Gameverse is a platform for exploring and discovering video games, where users can find information about games, view their details, and filter through different genres, platforms and more.
 
-![Screenshot 2023-07-16 at 4 37 05 AM](https://github.com/moizghumann/GameVerse/assets/68769670/72f8fbe6-54ca-4567-adf7-8394e2b35142)
+![Screenshot 2023-07-16 at 4 37 05 AM](https://github.com/moizghumann/GameVerse/assets/68769670/b7cf8421-3fcc-4c2e-b1af-71d37ab909fd)
 
 ## Table of Contents
 
@@ -20,15 +20,15 @@ Welcome to Gameverse! This is a web application built using React, TypeScript, Z
 To run the Gameverse application locally, follow these steps:
 
 1. Clone the repository: 
-`git clone https://github.com/yourusername/gameverse.git`
+```git clone https://github.com/yourusername/gameverse.git```
 2. Navigate to the project directory: 
-`cd gameverse`
+```cd gameverse```
 3. Install the dependencies: 
-`npm install`
+```npm install```
 4. Start the development server: 
-`npm start`
+```npm start```
 5. Open your web browser and go to: 
-`http://localhost:3000`
+```http://localhost:3000```
 
 ## Usage
 
@@ -58,9 +58,8 @@ Gameverse is built with the following technologies:
 
 ## Demo
 
-Check out the live demo of Gameverse [here](https://game-verse.vercel.app/)!
+![Screen_Recording_2023-07-16_at_4_47_59_AM_AdobeExpress](https://github.com/moizghumann/GameVerse/assets/68769670/4fb16159-d92c-4c91-9900-e98fcd33a52c)
 
-![Gameverse Demo Gif](demo.gif)
 
 ## Contributing
 
