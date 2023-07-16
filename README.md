@@ -2,7 +2,6 @@
 
 Welcome to Gameverse! This is a web application built using React, TypeScript, Zustand, React Router, React Query, and Chakra UI. Gameverse is a platform for exploring and discovering video games, where users can find information about games, view their details, and filter through different genres, platforms and more.
 
-![Gameverse Screenshot]
 ![Screenshot 2023-07-16 at 4 37 05 AM](https://github.com/moizghumann/GameVerse/assets/68769670/72f8fbe6-54ca-4567-adf7-8394e2b35142)
 
 ## Table of Contents
